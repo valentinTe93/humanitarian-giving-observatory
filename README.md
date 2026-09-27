@@ -22,7 +22,7 @@ The primary governing analytical question is:
 
 ## Dashboard Preview
 
-![Humanitarian Giving Observatory Dashboard Preview](dashboard.gif)
+![Humanitarian Giving Observatory Dashboard Preview](docs/dashboard.gif)
 
 ---
 
