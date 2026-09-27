@@ -18,6 +18,22 @@ The primary governing analytical question is:
 
 ---
 
+## Source Files & Data Provenance
+
+The project relies on public data from the **United Nations Office for the Coordination of Humanitarian Affairs (UN OCHA) Financial Tracking Service (FTS)** and standard reference data:
+
+| File / Query Name | Role in Project | Description / Source |
+| :--- | :--- | :--- |
+| **`fts_requirements_funding_global.csv`** | Core Fact Source | OCHA FTS extract containing annual recorded financial requirements and reported funding. |
+| **`stg_requirements_funding`** | Power Query Staging Layer | Preserves source data structure before applying cleaning and transformation logic. |
+| **`lookup_country_codes_iso3.csv`** | Geographic Reference | Derived from DataHub country-code reference; maps location codes to ISO Alpha-3, regions, and sub-regions. |
+| **`dim_requirements_location`** | Geographic Dimension | Enriched country dimension generated from trimmed and uppercase-cleaned location codes. |
+| **`dim_requirements_plan`** | Plan Dimension | Stores country-plan attributes linked via the business key `country_plan_key`. |
+
+> [!NOTE]
+> **Data Preparation Note:** Incoming and outgoing funding queries were excluded from the active analytical scope to focus strictly on the relationship between recorded financial requirements and reported funding coverage.
+
+
 ## Data Model & Architecture
 
 The analytical engine relies on a **Requirements-focused Snowflake Schema** engineered via Power Query and DAX:
