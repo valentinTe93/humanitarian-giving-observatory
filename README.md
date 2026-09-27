@@ -1,6 +1,6 @@
 # Humanitarian Giving Observatory
 
-- **Author:** Valentin Te Selone
+- **Author:** Valentin Te    
 - **Format:** Microsoft Power BI portfolio dashboard
 - **Data:** Public humanitarian requirements and reported-funding records from the UN Office for the Coordination of Humanitarian Affairs (OCHA) Financial Tracking Service (FTS)
 
@@ -42,7 +42,7 @@ This is a descriptive analysis of recorded financial requirements and reported f
 
 The Power Query staging and lookup queries, final model tables, relationships, DAX measures, and report visuals are contained in the `.pbix` file; they are **not** separate files in the repository.
 
-The analytical report is available as [`CONSULTING_REPORT.md`](CONSULTING_REPORT.md) and [`CONSULTING_REPORT.pdf`](CONSULTING_REPORT.pdf). It separates the Power BI all-record validation context from the comparable 2000–2026 analysis and documents the denominator-completeness caveat. Report figures are stored in `docs/figures/` and can be regenerated from the checked-in CSVs and boundary file with `python3 scripts/build_report_figures.py`.
+The analytical report is available as [`Report.md`](Report.md) and [`Report.pdf`](Report.pdf). It separates the Power BI all-record validation context from the comparable 2000–2026 analysis and documents the denominator-completeness caveat. Report figures are stored in `docs/figures/` and can be regenerated from the checked-in CSVs and boundary file with `python3 scripts/build_report_figures.py`.
 
 ## Data and scope
 
