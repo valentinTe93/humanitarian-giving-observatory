@@ -18,6 +18,14 @@ The primary governing analytical question is:
 
 ---
 
+---
+
+## Dashboard Preview
+
+![Humanitarian Giving Observatory Dashboard Preview](dashboard.gif)
+
+---
+
 ## Data Sources & Provenance
 
 The project uses public humanitarian financing data managed by **UN OCHA Financial Tracking Service (FTS)** alongside standard country classification references:
