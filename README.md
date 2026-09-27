@@ -18,20 +18,20 @@ The primary governing analytical question is:
 
 ---
 
-## Source Files & Data Provenance
+## Data Sources & Provenance
 
-The project relies on public data from the **United Nations Office for the Coordination of Humanitarian Affairs (UN OCHA) Financial Tracking Service (FTS)** and standard reference data:
+The project uses public humanitarian financing data managed by **UN OCHA Financial Tracking Service (FTS)** alongside standard country classification references:
 
-| File / Query Name | Role in Project | Description / Source |
-| :--- | :--- | :--- |
-| **`fts_requirements_funding_global.csv`** | Core Fact Source | OCHA FTS extract containing annual recorded financial requirements and reported funding. |
-| **`stg_requirements_funding`** | Power Query Staging Layer | Preserves source data structure before applying cleaning and transformation logic. |
-| **`lookup_country_codes_iso3.csv`** | Geographic Reference | Derived from DataHub country-code reference; maps location codes to ISO Alpha-3, regions, and sub-regions. |
-| **`dim_requirements_location`** | Geographic Dimension | Enriched country dimension generated from trimmed and uppercase-cleaned location codes. |
-| **`dim_requirements_plan`** | Plan Dimension | Stores country-plan attributes linked via the business key `country_plan_key`. |
+| File / Query Name | Role in Project | Source / Provenance | Coverage / Details |
+| :--- | :--- | :--- | :--- |
+| **`fts_requirements_funding_global.csv`** | Core Fact Source | [UN OCHA FTS](https://fts.unocha.org/) / [HDX Data Platform](https://data.humdata.org/) | Annual global requirement and reported funding extracts (Reporting Years 1999–2031). |
+| **`stg_requirements_funding`** | Staging Layer | Power Query transformation step | Source preservation layer retaining raw schema before downstream modeling. |
+| **`lookup_country_codes_iso3.csv`** | Geographic Reference | [DataHub Country Codes](https://datahub.io/) | ISO Alpha-3, country names, regions, and sub-regions used to enrich location data. |
+| **`dim_requirements_location`** | Location Dimension | Derived from staging query | Deduplicated, uppercase-cleaned location codes mapped to country attributes. |
+| **`dim_requirements_plan`** | Plan Dimension | Derived from staging query | Attributes for humanitarian response plans joined via `country_plan_key`. |
 
 > [!NOTE]
-> **Data Preparation Note:** Incoming and outgoing funding queries were excluded from the active analytical scope to focus strictly on the relationship between recorded financial requirements and reported funding coverage.
+> **Reporting Period Note:** While the raw extract contains records through 2031, the core dashboard analysis focuses on the active reporting period (2000–2026). Recent or future years may show partial coverage due to reporting lag in OCHA FTS updates.
 
 
 ## Data Model & Architecture
