@@ -41,6 +41,8 @@ The project has two complementary outputs: a Power BI dashboard for interactive 
 │   ├── dashboard.gif                      # Power BI dashboard preview
 │   ├── figures/                            # Report figures and model diagram
 │   └── index.html                         # GitHub Pages entry point
+├── notebooks/
+│   └── humanitarian_giving_sql_pandas_colab.ipynb # Reproducible DuckDB SQL + pandas portfolio notebook
 └── scripts/
     └── build_report_figures.py            # Regenerates report figures from source data
 ```
@@ -146,6 +148,12 @@ The map communicates geographic variation in **reported financial coverage**; it
 - The analysis does not establish why a requirement is underfunded, whether funding arrived on time, whether reported amounts were fully disbursed, or what outcomes followed.
 - The analysis is annual. Monthly, quarterly, fiscal-year, year-to-date, or rolling-period analysis would require an explicit date dimension.
 - Geographic enrichment improves readability and mapping but does not create funding evidence. Unmatched or non-standard location codes should remain visible for data-quality review rather than being assigned an invented country identity.
+
+## SQL + pandas Colab notebook
+
+[`notebooks/humanitarian_giving_sql_pandas_colab.ipynb`](notebooks/humanitarian_giving_sql_pandas_colab.ipynb) reproduces the core analysis with DuckDB SQL followed by pandas and Matplotlib. It demonstrates source staging, type cleaning, missingness checks, SQL aggregations and joins, coverage bands, window-function ranking, validation against the Power BI results, and portfolio-ready charts. The notebook uses the repository's pinned data snapshot and can also download the two CSV inputs when opened outside the repository.
+
+To run it in Google Colab, download the `.ipynb` file and upload it in Colab, then choose **Runtime → Run all**. Once the notebook has been committed to this repository, it can also be opened with [Google Colab](https://colab.research.google.com/github/valentinTe93/humanitarian-giving-observatory/blob/main/notebooks/humanitarian_giving_sql_pandas_colab.ipynb).
 
 ## Reproducing the project
 
