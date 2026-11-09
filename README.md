@@ -153,7 +153,11 @@ The map communicates geographic variation in **reported financial coverage**; it
 
 [`notebooks/humanitarian_giving_sql_pandas_colab.ipynb`](notebooks/humanitarian_giving_sql_pandas_colab.ipynb) reproduces the core analysis with DuckDB SQL followed by pandas and Matplotlib. It demonstrates source staging, type cleaning, missingness checks, SQL aggregations and joins, coverage bands, window-function ranking, validation against the Power BI results, and portfolio-ready charts. The notebook uses the repository's pinned data snapshot and can also download the two CSV inputs when opened outside the repository.
 
-To run it in Google Colab, download the `.ipynb` file and upload it in Colab, then choose **Runtime → Run all**. Once the notebook has been committed to this repository, it can also be opened with [Google Colab](https://colab.research.google.com/github/valentinTe93/humanitarian-giving-observatory/blob/main/notebooks/humanitarian_giving_sql_pandas_colab.ipynb).
+To run it in Google Colab, download the `.ipynb` file and upload it in Colab, then choose **Runtime → Run all**. After this notebook is merged into `main`, it can also be opened with [Google Colab](https://colab.research.google.com/github/valentinTe93/humanitarian-giving-observatory/blob/main/notebooks/humanitarian_giving_sql_pandas_colab.ipynb).
+
+## Contribution workflow
+
+The `main` branch is protected: submit changes through a pull request. Direct pushes, force pushes, and branch deletion are blocked. No review approvals or status checks are currently required.
 
 ## Reproducing the project
 
