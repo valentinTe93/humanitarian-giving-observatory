@@ -17,7 +17,7 @@ The project has two complementary outputs: a Power BI dashboard for interactive 
 
 ## Dashboard preview
 
-![Humanitarian Giving Observatory Power BI dashboard preview](https://private-us-east-1.manuscdn.com/sessionFile/njWMJ9AhcKO5XzhTJlvpFc/sandbox/L8wx2OaQ0vB7iYEj6O4wSR-images_1790642633054_na1fn_L2hvbWUvdWJ1bnR1L3dvcmsvcmVwby9kb2NzL2Rhc2hib2FyZA.gif?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvbmpXTUo5QWhjS081WHpoVEpsdnBGYy9zYW5kYm94L0w4d3gyT2FRMHZCN2lZRWo2TzR3U1ItaW1hZ2VzXzE3OTA2NDI2MzMwNTRfbmExZm5fTDJodmJXVXZkV0oxYm5SMUwzZHZjbXN2Y21Wd2J5OWtiMk56TDJSaGMyaGliMkZ5WkEuZ2lmIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzkyMDIyNDAwfX19XX0_&Key-Pair-Id=K2QY5QTL8JSY6C&Signature=MEUCIDLYcBUiqb7kHm~WBAZMDJ0bqmzpOHVYgx6nKGBuBZ7kAiEA1A3YpiA5O46N6LlJNkmdXoeABkv7JkgDirmYPbOYm1g_)
+![Humanitarian Giving Observatory Power BI dashboard preview](docs/dashboard.gif)
 
 ## Repository contents
 
@@ -41,6 +41,8 @@ The project has two complementary outputs: a Power BI dashboard for interactive 
 │   ├── dashboard.gif                      # Power BI dashboard preview
 │   ├── figures/                            # Report figures and model diagram
 │   └── index.html                         # GitHub Pages entry point
+├── notebooks/
+│   └── humanitarian_giving_sql_pandas_colab.ipynb # Reproducible DuckDB SQL + pandas portfolio notebook
 └── scripts/
     └── build_report_figures.py            # Regenerates report figures from source data
 ```
@@ -146,6 +148,16 @@ The map communicates geographic variation in **reported financial coverage**; it
 - The analysis does not establish why a requirement is underfunded, whether funding arrived on time, whether reported amounts were fully disbursed, or what outcomes followed.
 - The analysis is annual. Monthly, quarterly, fiscal-year, year-to-date, or rolling-period analysis would require an explicit date dimension.
 - Geographic enrichment improves readability and mapping but does not create funding evidence. Unmatched or non-standard location codes should remain visible for data-quality review rather than being assigned an invented country identity.
+
+## SQL + pandas Colab notebook
+
+[`notebooks/humanitarian_giving_sql_pandas_colab.ipynb`](notebooks/humanitarian_giving_sql_pandas_colab.ipynb) reproduces the core analysis with DuckDB SQL followed by pandas and Matplotlib. It demonstrates source staging, type cleaning, missingness checks, SQL aggregations and joins, coverage bands, window-function ranking, validation against the Power BI results, and portfolio-ready charts. The notebook uses the repository's pinned data snapshot and can also download the two CSV inputs when opened outside the repository.
+
+To run it in Google Colab, download the `.ipynb` file and upload it in Colab, then choose **Runtime → Run all**. After this notebook is merged into `main`, it can also be opened with [Google Colab](https://colab.research.google.com/github/valentinTe93/humanitarian-giving-observatory/blob/main/notebooks/humanitarian_giving_sql_pandas_colab.ipynb).
+
+## Contribution workflow
+
+The `main` branch is protected: submit changes through a pull request. Direct pushes, force pushes, and branch deletion are blocked. No review approvals or status checks are currently required.
 
 ## Reproducing the project
 
